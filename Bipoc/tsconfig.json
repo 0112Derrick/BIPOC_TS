@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "esnext",
+    "rootDir": "./",
+    "outDir": "./ts_built",
+    "esModuleInterop": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+  },
+  "include": [
+    "./src/*",
+    "./"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

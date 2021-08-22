@@ -1,0 +1,18 @@
+import MemberModel from './member-model';
+async function addMember(userinfo) {
+    const newMember = new MemberModel({
+        email: userinfo.email,
+        dateOfBirth: userinfo.dateOfBirth,
+    });
+    newMember.hashPassword(userinfo.password);
+    // Add the new member to the DB.
+    await newMember.save(function (err, newMember) {
+        if (err) {
+            return console.log(err);
+        }
+        else {
+            return console.log("User Saved");
+        }
+    });
+}
+export { addMember };

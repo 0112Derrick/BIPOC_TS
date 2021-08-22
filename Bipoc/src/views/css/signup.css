@@ -1,0 +1,81 @@
+* {
+      padding: 0;
+      margin: 0;
+    }
+
+    .outerContainerClass {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 25px;
+      height: 100vh;
+      background-color: rgb(230, 230, 220);
+    }
+
+    .title1Class {
+      font-size: 24px;
+      font-weight: 500;
+      color: green;
+      width: 75px;
+      margin-top: 75px;
+    }
+
+    .creamCityLogo1Class {
+      padding-top: 5px;
+      height: 150px;
+      width: 175px;
+    }
+
+    .titleParagraphClass {
+      font-size: 18px;
+      font-weight: 500;
+      padding-top: 5px;
+    }
+
+    .innerContainerClass {
+      height: 450px;
+      width: 700px;
+      border: solid black 1px;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    }
+
+    .dateOfBirthClass {
+      font-weight: 600;
+    }
+
+    .userSubmitClass {
+      height: 25px;
+      width: 600px;
+    }
+
+    .submitBtnClass {
+      color: white;
+      background-color: blue;
+      border-radius: 5px;
+      font-weight: 600;
+    }
+
+    .flexBoxClass {
+      display: flex;
+      flex-direction: row;
+      align-self: center;
+    }
+
+    .flexBox2Class {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .signInLinkClass {
+      padding-right: 5px;
+    }
