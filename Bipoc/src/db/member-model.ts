@@ -19,14 +19,13 @@ export interface IUserModel extends Model<IUser> {
 
 export const userSchema = new Schema<IUser, IUserModel>({
   email: { type: String, index: { unique: true }, required: true },
-  name: { type: String, index: { unique: true }, required: true },
-  password: { type: String, required: true },
+  dateOfBirth: { type: String, index: { unique: true } },
   hash: { type: String },
   salt: { type: String },
 });
 
 //Add method to compare password
-userSchema.method('comparePassword', function (password: string): boolean {
+userSchema.method('validPassword', function (password: string): boolean {
   const recalcHash = crypto
     .pbkdf2Sync(password, this.salt, 1000, 64, 'sha512')
     .toString('hex');
@@ -42,6 +41,6 @@ userSchema.method('hashPassword', function (password: string): void {
     .toString('hex');
 });
 
-export const User = model<IUser, IUserModel>('User', userSchema);
+export const User = model<IUser, IUserModel>('member', userSchema);
 
 export default User;

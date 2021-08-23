@@ -19,5 +19,6 @@ async function addMember(userinfo) {
       return console.log("User Saved")
     }
   });
+  return Promise.resolve(newMember);
 }
 export { addMember };

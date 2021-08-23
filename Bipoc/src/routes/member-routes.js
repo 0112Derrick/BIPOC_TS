@@ -9,9 +9,9 @@ memberRouter.post('/signup', express.urlencoded(), async function (req, res, nex
             email: req.body.email,
             dateOfBirth: req.body.dateOfBirth,
             password: req.body.password
-        });
-        console.log("Added member ", member);
-        res.redirect('/');
+        }).then((member) => console.log("Added member", member))
+            .catch((err) => console.log("Failed to add member"))
+            .finally(() => res.redirect('/'));
     }
     else {
         //

@@ -23,6 +23,7 @@
         "src/models/*",
         "src/views/*",
         "src/db/*",
+        "src/db/interfaces/*",
         "src/controllers/*",
         "src/authentication/*",
         "src/routes/*"

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc && node ./ts_built/bipoc-server.js",
-    "start": "nodemon -e ts  --exec \"npm run compile\""
+    "start": "nodemon -e ts  --exec \"npm run compile\"",
+    "gcp-build": "tsc -p"
   },
   "author": "",
   "license": "ISC",

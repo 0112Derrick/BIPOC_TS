@@ -3,13 +3,12 @@ import pkg from 'mongoose';
 const { Schema, model } = pkg;
 export const userSchema = new Schema({
     email: { type: String, index: { unique: true }, required: true },
-    name: { type: String, index: { unique: true }, required: true },
-    password: { type: String, required: true },
+    dateOfBirth: { type: String, index: { unique: true } },
     hash: { type: String },
     salt: { type: String },
 });
 //Add method to compare password
-userSchema.method('comparePassword', function (password) {
+userSchema.method('validPassword', function (password) {
     const recalcHash = crypto
         .pbkdf2Sync(password, this.salt, 1000, 64, 'sha512')
         .toString('hex');
@@ -23,5 +22,5 @@ userSchema.method('hashPassword', function (password) {
         .pbkdf2Sync(password, this.salt, 1000, 64, 'sha512')
         .toString('hex');
 });
-export const User = model('User', userSchema);
+export const User = model('member', userSchema);
 export default User;
