@@ -1,5 +1,5 @@
 import passportLocal from 'passport-local';
-import MemberModel from '../db/member-model'
+import MemberModel from '../db/member-model.js'
 
 const localStrategy = passportLocal.Strategy;
 

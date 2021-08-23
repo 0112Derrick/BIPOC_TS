@@ -1,4 +1,5 @@
 export default class EventSource {
+    eventMap;
     constructor() {
         this.eventMap = new Map();
     }

@@ -1,5 +1,6 @@
 import crypto from 'crypto';
-import { Schema, model } from 'mongoose';
+import pkg from 'mongoose';
+const { Schema, model } = pkg;
 export const userSchema = new Schema({
     email: { type: String, index: { unique: true }, required: true },
     name: { type: String, index: { unique: true }, required: true },
@@ -22,5 +23,5 @@ userSchema.method('hashPassword', function (password) {
         .pbkdf2Sync(password, this.salt, 1000, 64, 'sha512')
         .toString('hex');
 });
-export const MemberModel = model('User', userSchema);
-export default MemberModel;
+export const User = model('User', userSchema);
+export default User;

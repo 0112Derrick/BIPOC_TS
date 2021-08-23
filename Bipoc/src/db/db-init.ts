@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { MONGO_URI } from '../authentication/secrets';
+import { MONGO_URI } from '../authentication/secrets.js';
 
 
 async function connectDB() {

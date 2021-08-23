@@ -5,6 +5,8 @@ Bipoc members may have the ability to interact with other Bipoc members/employer
 Bipoc groups shall have the ability to unite similar interest Bipoc members and allow messaging.
  */
 class Bipoc {
+    membersList;
+    modalCallback;
     constructor() {
         this.membersList = new Array;
     }
@@ -21,6 +23,13 @@ class Bipoc {
     }
 }
 class Employer {
+    superId;
+    name;
+    userName;
+    email;
+    image;
+    phone;
+    businessBio;
     constructor(superId, name, userName, email, phone, image, businessBio) {
         this.superId = superId;
         this.name = name;
@@ -65,6 +74,23 @@ Returns: None
 
 Side-Effects: An external datastore will asynchronously requested to add the new user to the database. Any exceptions will be propagated through to the caller of this function.*/
 class Member {
+    id;
+    firstName;
+    lastName;
+    userName;
+    dateOfBirth;
+    email;
+    ethnicity;
+    phone;
+    address;
+    gender;
+    image;
+    employmentInterest;
+    education;
+    interest;
+    skills;
+    bio;
+    notify;
     constructor(id, email, dateOfBirth, firstName = '', lastName = '', userName = '', ethnicity = '', phone = '', address = '', gender = '', image = '', employmentInterest = '', education = '', interest = '', skills = '', bio = '', notify = false) {
         this.id = id;
         this.firstName = firstName;
@@ -107,6 +133,10 @@ class Member {
     }
 }
 class Group {
+    groupName;
+    description;
+    owner;
+    groupMembers;
     constructor(groupName, description, owner) {
         this.groupName = groupName;
         this.description = description;

@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "esnext",
     "lib": [
-      "ES2020",
+      "esnext",
       "DOM",
       "DOM.Iterable"
     ],
     "module": "esnext",
     "rootDir": "./",
-    "outDir": "./ts_built",
     "esModuleInterop": true,
     "strict": true,
     "noImplicitAny": false,
@@ -17,6 +16,18 @@
     "alwaysStrict": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "src/common/*",
+        "src/models/*",
+        "src/views/*",
+        "src/db/*",
+        "src/controllers/*",
+        "src/authentication/*",
+        "src/routes/*"
+      ]
+    }
   },
   "include": [
     "./src/*",
@@ -24,5 +35,5 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }

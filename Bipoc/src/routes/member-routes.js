@@ -1,6 +1,6 @@
 import express from 'express';
 import passport from 'passport';
-import { addMember } from '../db/db-api';
+import { addMember } from '../db/db-api.js';
 const memberRouter = express.Router();
 // Signup Request
 memberRouter.post('/signup', express.urlencoded(), async function (req, res, next) {

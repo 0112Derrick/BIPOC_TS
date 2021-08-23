@@ -1,4 +1,4 @@
-import MemberModel from './member-model';
+import MemberModel from './member-model.js';
 async function addMember(userinfo) {
     const newMember = new MemberModel({
         email: userinfo.email,

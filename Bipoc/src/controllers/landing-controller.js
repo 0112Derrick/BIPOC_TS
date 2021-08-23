@@ -1,9 +1,12 @@
-import { Bipoc } from '../models/bipoc-model';
-import MemberSignUpView from '../views/landing-view';
-import { EventConstants, LoginStatusConstants } from '../common/event-constants';
-import NetworkProxy from './network-proxy';
-import Observer from './observer';
+import { Bipoc } from '/bipoc-model.js';
+import MemberSignUpView from '/landing-view.js';
+import { EventConstants, LoginStatusConstants } from '/event-constants.js';
+import NetworkProxy from '/network-proxy.js';
+import Observer from '/observer.js';
 class SignUpController extends Observer {
+    networkProxy;
+    model;
+    view;
     constructor() {
         super();
         this.networkProxy = new NetworkProxy();

@@ -3,8 +3,8 @@
 // an item, delete an item, etc.
 // This will trigger an update to the model (via the controller)
 // the model will then trigger an update of the view (via the controller)
-import EventSource from './event-source';
-import { EventConstants } from '../common/event-constants';
+import EventSource from '/event-source.js';
+import { EventConstants } from '/event-constants.js';
 class MemberSignUpView extends EventSource {
     constructor() {
         super();

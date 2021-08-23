@@ -1,9 +1,12 @@
-import { Bipoc } from '../models/bipoc-model';
-import MainAppView from '../views/bipoc-view';
-import { EventConstants } from '../common/event-constants';
-import NetworkProxy from './network-proxy';
-import Observer from './observer';
+import { Bipoc } from 'bipoc-model.js';
+import MainAppView from 'bipoc-view.js';
+import { EventConstants } from 'event-constants.js';
+import NetworkProxy from 'network-proxy.js';
+import Observer from 'observer.js';
 class MainAppController extends Observer {
+    networkProxy;
+    model;
+    view;
     constructor() {
         super();
         this.networkProxy = new NetworkProxy();

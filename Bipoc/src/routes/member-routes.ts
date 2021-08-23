@@ -1,7 +1,7 @@
 import express, { response } from 'express';
 import passport from 'passport';
-import { addMember } from '../db/db-api';
-import { ensureAuthenticated } from '../helpers/auth';
+import { addMember } from '../db/db-api.js';
+import { ensureAuthenticated } from '../helpers/auth.js';
 
 const memberRouter = express.Router();
 

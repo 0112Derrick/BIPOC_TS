@@ -1,8 +1,9 @@
-
 import crypto from 'crypto';
-import { Document, Schema, Model, model } from 'mongoose';
+import { Model } from 'mongoose';
+import pkg from 'mongoose';
+const { Schema, model } = pkg;
 
-import { IUserDocument } from './interfaces/IUserDocument';
+import { IUserDocument } from 'interfaces/IUserDocument.js';
 
 // Define the methods interface for a User (will access this)
 // Methods apply per document so they are split
@@ -41,6 +42,6 @@ userSchema.method('hashPassword', function (password: string): void {
     .toString('hex');
 });
 
-export const MemberModel = model<IUser, IUserModel>('User', userSchema);
+export const User = model<IUser, IUserModel>('User', userSchema);
 
-export default MemberModel;
+export default User;

@@ -1,4 +1,6 @@
 export default class Observable {
+    observers;
+    self;
     constructor() {
         this.observers = [];
         this.self = {};
