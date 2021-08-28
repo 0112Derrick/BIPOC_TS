@@ -51,6 +51,7 @@ class SignUpController extends Observer {
   async logInCallback(event) {
 
     const entries = event.detail.entries();
+
     const [[, email], [, password]] = Array.from(entries); //Use array destructuring to extract data from form.
     const result = await this.networkProxy.postJSON('/member/login', { email: email, password: password });
 

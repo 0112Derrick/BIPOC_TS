@@ -9,9 +9,13 @@ import { EventConstants } from '/event-constants.js'
 class MainAppView extends EventSource {
   constructor() {
     super();
-
+    var logout = document.getElementById('button-logout');
+    if (logout === null || undefined) {
+      console.log("missing logout btn");
+      return;
+    }
     // Add listeners that dispatch user actions events to the observers who have subscribed to these events.
-    document.getElementById('button-logout')!.addEventListener('click', () => { this.dispatchEvent(EventConstants.SIGN_OUT, null); });
+    logout.addEventListener('click', () => { this.dispatchEvent(EventConstants.SIGN_OUT, null); });
   }
 
   // Called by the Controller whenever the View needs to be refreshed
@@ -22,9 +26,17 @@ class MainAppView extends EventSource {
   listSelector() {
     let menuToggle: (HTMLElement | null) = document.querySelector('.toggle');
     let navigation: (HTMLElement | null) = document.querySelector('.navigation');
-    menuToggle!.onclick = function () {
-      menuToggle!.classList.toggle('active');
-      navigation!.classList.toggle('active');
+    if (!menuToggle || !navigation) {
+      console.log(";navigation or menuToggle doesn't exist");
+      return
+    }// Can't be here unless menuToggle & navigation are true.
+    menuToggle.onclick = function () {
+      if (!menuToggle || !navigation) {
+        console.log("callback of menuToggle or navigation doesn't exist");
+        return
+      }
+      menuToggle.classList.toggle('active');
+      navigation.classList.toggle('active');
     }
 
     let list: (NodeListOf<HTMLElement>) = document.querySelectorAll('.list');

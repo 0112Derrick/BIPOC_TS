@@ -3,7 +3,7 @@ import pkg from 'mongoose';
 const { Schema, model } = pkg;
 export const userSchema = new Schema({
     email: { type: String, index: { unique: true }, required: true },
-    dateOfBirth: { type: String, index: { unique: true } },
+    dateOfBirth: { type: String, },
     hash: { type: String },
     salt: { type: String },
 });

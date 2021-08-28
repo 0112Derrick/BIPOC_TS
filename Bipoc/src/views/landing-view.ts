@@ -29,6 +29,7 @@ class MemberSignUpView extends EventSource {
 
     modal!.style.display = 'block';
 
+
     // Snag the form data and pass it to the Controller
     // to create the new Item.
     ok_button!.onclick = (event) => {

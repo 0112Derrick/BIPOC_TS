@@ -5,6 +5,7 @@ import passport from 'passport';
 import connectMongo from 'connect-mongo';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import employerRouter from './src/routes/employer-routes.js';
 import memberRouter from './src/routes/member-routes.js';
 import connectDB from './src/db/db-init.js';
 import initLocalStrategy from './src/authentication/passport-strategies.js';
@@ -21,7 +22,16 @@ connectDB();
 //Register Handlebars as our HTML rendering engine
 app.engine('.hbs', exhbs({
     defaultLayout: 'index',
-    extname: '.hbs' // change default extension to 'hbs'
+    extname: '.hbs',
+    helpers: {
+    // section: function (name, option) {
+    //   if (!this._sections) {
+    //     this._sections = {};
+    //     this._sections[name] = option.fn(this);
+    //     return null
+    //   }
+    // }
+    }
 }));
 app.set('views', './render-templates');
 app.set('view engine', '.hbs');
@@ -55,6 +65,8 @@ app.use(express.static(path.join(__dirname, '/src/controllers')));
 app.use(express.static(path.join(__dirname, '/src/views/css')));
 //Routes
 //------
+// Employer routes
+app.use('/employer', employerRouter);
 // Member routes
 app.use('/member', memberRouter);
 app.get('/', (req, res) => {
@@ -79,4 +91,5 @@ app.get('/main', (req, res) => {
 app.get('/home/signup', (req, res) => {
     res.render('signup', { layout: 'signup' });
 });
+app.use('/employer', employerRouter);
 app.listen(port);

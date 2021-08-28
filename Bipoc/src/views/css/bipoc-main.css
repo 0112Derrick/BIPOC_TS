@@ -4,25 +4,51 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+html{
+  box-sizing: border-box;
+}
 body{
   min-height: 100vh;
   background: #fff;
 }
+@media screen and (max-width: 400px){
+  .navigation{
+   visibility: hidden;
+  }
+  .toggle{
+    visibility: hidden;
+}
+.mobile{
+  visibility: visible;
+}
+.icon{
+  display: block;
+  font-size: 1.5em;
+}
+.icon:hover{
+  cursor: pointer;
+}
+
+}
+.mobile{
+  visibility: hidden;
+}
 .navigation{
   position: fixed;
-  top: 20px;
-  left:20px;
+  top: 50px;
+  left:0px;
   bottom: 20px;
   width: 70px;
+  height: 100vh;
   border-radius: 10px;
   box-sizing: initial;
-  border-left: 5px solid rgb(73, 97, 233); 
-  background: rgb(73, 97, 233);
+  background: linear-gradient(to top, rgba(223, 230, 221, 0.879), rgb(189, 189, 188));
   transition: width 0.5s;
   overflow-x: hidden;
+
 }
 .navigation.active{
-  width: 300px;
+  width: 175px;
 }
 .navigation ul{
   position: absolute;
@@ -52,6 +78,7 @@ background: #fff;
 }
 .navigation ul li.active div{
  color: #333;
+ overflow: hidden;
 }
 .navigation ul li div .icon{
 position: relative;
@@ -73,15 +100,16 @@ padding-left: 10px;
 height: 60px;
 line-height: 60px;
 white-space: normal;
+overflow: hidden;
 }
 
 .toggle{
   position: fixed;
-  top: 20px;
+  top: 0px;
   right: 20px;
   width: 50px;
   height: 50px;
-  background: rgb(73, 97, 233);
+  background: rgba(223, 230, 221, 0.879);
   border-radius: 10px;
   cursor:pointer;
   display: flex;
@@ -104,10 +132,11 @@ white-space: normal;
   display: none;
 }
 
-.grid-2x{
+.grid2col{
   display: grid;
-  grid-template-columns: 3em, auto;
-  background-color: rgb(73, 97, 233);
+  grid-template-columns: auto, auto;
+  gap: 10px;
+  
 }
 .flex-row{
   display: flex;
@@ -121,8 +150,31 @@ white-space: normal;
   flex-direction: column;
 }
 .sidebar{
-  background-color: rgb(73, 97, 233);
+  
+  background-color: rgba(255, 251, 251, );
+  border-bottom: solid 1px rgb(196, 194, 194);
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  justify-content:left;
+  align-items: center;
+  
+}
+.bipocHeader{
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 35px;
 }
 .calendar{
   width: 300px;
+}
+#creamCityLogoId{
+  border: 1px solid black;
+}
+#search-bar{
+  padding-left: 15px;
+  padding-top: 10px;
+}
+#search-bar-mobile{
+
 }

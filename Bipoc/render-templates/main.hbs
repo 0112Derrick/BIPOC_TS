@@ -1,6 +1,6 @@
 <div class="flex-row">
-  <h1>Main</h1>
-  <div class="flex-column, sidebar">
+
+  <div class="flex-column">
     <div class="navigation">
       <ul>
         <li class="list active">
@@ -65,20 +65,53 @@
       <ion-icon name="menu-outline" class="open"></ion-icon>
       <ion-icon name="close-circle-outline" class="close"></ion-icon>
     </div>
-    <div class="grid-2x"></div>
+
+    {{!-- {{#section 'head'}}
+    {{/section}} --}}
+
 
     <div class="flex-column">
+
       <div class="flex-row">
-        <div>
-          <h1 class="calendar">Calendar</h1>
-
+        <div class="sidebar ">
+          <div class="grid2col">
+            <h2 class="bipocHeader">Bipoc</h2>
+            <div id="search-bar-mobile">
+              <span class="icon">
+                <ion-icon name="search-outline"></ion-icon>
+              </span>
+            </div>
+          </div>
+          <div>profile</div>
+          <div>toggle</div>
+          <div>2nd row of top menu
+            <div class="mobile list" style="display: none;">
+              <div>Home</div>
+              <div>Groups</div>
+              <div>toggle</div>
+              <div>messages</div>
+              <div>notifications</div>
+            </div>
+          </div>
         </div>
-        <div>
-          <h1>Events</h1>
+      </div>
+      <div style="display: none;">reduced browser
+        <div>logo</div>
+        <div> search bar
+          <div id="search-bar">
+            <span class="icon">
+              <ion-icon name="search-outline"></ion-icon>
+            </span>
+          </div>
+          <div>Home</div>
+          <div>Groups</div>
+          <div>toggle</div>
+          <div>Create dropdown btn (story,newsfeed,group,event, post a job)</div>
+          <div>messages</div>
+          <div>notifications</div>
+          <div> toggle (profile,settings, display, log out)</div>
         </div>
-
       </div>
     </div>
-  </div>
 
-</div>
+  </div>
