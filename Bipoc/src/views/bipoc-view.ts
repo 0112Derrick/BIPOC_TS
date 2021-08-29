@@ -27,7 +27,7 @@ class MainAppView extends EventSource {
     let menuToggle: (HTMLElement | null) = document.querySelector('.toggle');
     let navigation: (HTMLElement | null) = document.querySelector('.navigation');
     if (!menuToggle || !navigation) {
-      console.log(";navigation or menuToggle doesn't exist");
+      console.log("navigation or menuToggle doesn't exist");
       return
     }// Can't be here unless menuToggle & navigation are true.
     menuToggle.onclick = function () {

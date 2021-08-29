@@ -32,13 +32,7 @@ app.engine('.hbs', exhbs({
   defaultLayout: 'index',
   extname: '.hbs',// change default extension to 'hbs' 
   helpers: {
-    // section: function (name, option) {
-    //   if (!this._sections) {
-    //     this._sections = {};
-    //     this._sections[name] = option.fn(this);
-    //     return null
-    //   }
-    // }
+
   }
 }))
 app.set('views', './render-templates');
