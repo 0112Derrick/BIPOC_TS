@@ -1,17 +1,33 @@
+import connectMongo from 'connect-mongo'
 import express from 'express';
 import expressSession from 'express-session'
 import exhbs from 'express-handlebars'
-import passport from 'passport'
-import connectMongo from 'connect-mongo'
-import { fileURLToPath } from 'url';
+import passport from 'passport';
 import path from 'path';
-import employerRouter from './src/routes/employer-routes.js';
-import memberRouter from './src/routes/member-routes.js';
+import { fileURLToPath } from 'url';
+
+import { IMemberDoc } from './src/member/MemberDBModel.js';
+import HTMLIDConstants from './src/constants/HTMLElementIDConstants.js'
+import NodeSyntheticEventEmitter from '.src/framework/NodeSyntheticEventEmitter.js';
+import employerRouter from './src/employer/employerRouter.js';
+import member, { Member } from './src/member/Member.js';
+import memberRouter from './src/member/memberRouter.js';
 import connectDB from './src/db/db-init.js';
 import initLocalStrategy from './src/authentication/passport-strategies.js';
 import { COOKIE_SECRET, MONGO_URI } from './src/authentication/secrets.js';
+import { MemberWriter } from './src/member/MemberInjectorNode.js';
 
 import fsModule from 'fs';
+//Add member to Express.Request so Typescript is happy about "req.member" references
+declare global {
+  namespace Express {
+    interface Request {
+      member?: Member;
+    }
+  }
+}
+
+
 const fs = fsModule.promises;
 
 const __filename = fileURLToPath(import.meta.url);
@@ -21,9 +37,13 @@ console.log('Cookie', COOKIE_SECRET)
 
 const app = express();
 
-const port = 8080;
+const PORT = process.env.PORT ?? 8080;
 
 app.use(express.static('static'));
+
+app.use((req, res, next) => {
+  res.locals.HTML_IDS = HTMLIDConstants;
+})
 
 connectDB();
 
@@ -64,12 +84,17 @@ initLocalStrategy(passport);
 
 //Register all the static paths for loading modules, images, etc.
 console.log("Path:", path.join(__dirname, '/src/views'))
-app.use(express.static(path.join(__dirname, '/src/common')));
+app.use('/src/member', express.static(path.join(__dirname, '/src/member')));
 app.use(express.static(path.join(__dirname, '/src/models')));
 app.use(express.static(path.join(__dirname, '/src/views')));
 app.use(express.static(path.join(__dirname, '/src/views/images')));
 app.use(express.static(path.join(__dirname, '/src/controllers')));
 app.use(express.static(path.join(__dirname, '/src/views/css')));
+app.use('/src/constantants', express.static(path.join(__dirname, '/src/constants')));
+app.use('/src/app', express.static(path.join(__dirname, '/src/app')));
+app.use(express.static(path.join(__dirname, '/css/')));
+app.use(express.static(path.join(__dirname, '/images/')));
+
 
 //Routes
 //------
@@ -107,4 +132,4 @@ app.get('/home/signup', (req, res) => {
 app.use('/employer', employerRouter);
 
 
-app.listen(port);
+app.listen(PORT);

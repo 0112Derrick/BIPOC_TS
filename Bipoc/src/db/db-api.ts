@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import MemberModel from './member-model.js'
+import MemberModel from '../member/MemberDBModel.js'
 import EmployerModel from './employer-model.js'
 
 async function addMember(userinfo) {
@@ -32,7 +32,7 @@ async function addEmployer(userinfo) {
 
   newEmployer.hashPassword(userinfo.password);
 
-  // Add the new member to the DB.
+  // Add the new employer to the DB.
   await newEmployer.save(function (err, newEmployer) {
     if (err) {
       return console.log(err)

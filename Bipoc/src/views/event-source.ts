@@ -1,6 +1,6 @@
 
-import { EventConstants } from '/event-constants.js'
-import Observer from '/observer.js'
+import { EventConstants } from '../constants/EventConstants.js'
+import Observer from '../framework/observer.js'
 
 export default class EventSource {
   public eventMap;

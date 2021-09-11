@@ -1,0 +1,12 @@
+//Events constants that can't be touched.
+export enum LoginStatusConstants {
+  LOGIN_CLIENT_ERROR_BASE = 400,
+  LOGIN_SERVER_ERROR_BASE = 500,
+
+  REDIRECTION_MESSAGE_BASE = 300,
+
+
+
+  LOGIN_USER_NOT_FOUND = LOGIN_CLIENT_ERROR_BASE + 1,
+  LOGIN_INVALID_PASSWORD = LOGIN_CLIENT_ERROR_BASE + 2
+}

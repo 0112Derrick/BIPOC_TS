@@ -26,5 +26,12 @@
     "systemjs": "^6.10.3",
     "tslib": "^2.3.1"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/express-handlebars": "^5.3.1",
+    "@types/express-session": "^1.17.4",
+    "@types/passport": "^1.0.7",
+    "@types/passport-local": "^1.0.34"
+  }
 }

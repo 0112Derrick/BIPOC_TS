@@ -3,11 +3,11 @@ import { Model } from 'mongoose';
 import pkg from 'mongoose';
 const { Schema, model } = pkg;
 
-import { IUserDocument } from 'interfaces/IUserDocument.js';
+import { IMemberDocument } from '../member/interfaces/IUserDocument.js';
 
 // Define the methods interface for a User (will access this)
 // Methods apply per document so they are split
-export interface IUser extends IUserDocument {
+export interface IUser extends IMemberDocument {
   comparePassword(password: string): boolean;
   hashPassword(password: string): void;
 }

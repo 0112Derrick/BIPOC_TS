@@ -1,0 +1,39 @@
+<head>
+  <link rel="stylesheet" href="./profile.css">
+</head>
+
+<body>
+  <div class="container">
+    <form id="{{HTML_IDS.PROFILE_MAIN_FORM}}" onsubmit="return false">
+
+      <h6>User Info</h6>
+      <input type="image" value="{{profilepicture}}">
+      <input type="text" id="{{HTML_IDS.PROFILE_USERNAME_INPUT}}" placeholder="Username" value="{{memberdata.username}}"
+        tabindex="0">
+      <input type="date" id="{{HTML_IDS.PROFILE_DATE_OF_BIRTH_INPUT}}" placeholder="Date of birth"
+        value="{{memberdata.dateOfBirth}}" tabindex="0">
+      <input type="text" id="{{HTML_IDS.PROFILE_FIRST_NAME_INPUT}}" placeholder="First name"
+        value="{{memberdata.firstname}}" tabindex="0">
+      <input type="text" id="{{HTML_IDS.PROFILE_LAST_NAME_INPUT}}" placeholder="Last name"
+        value="{{memberdata.lastname}}" tabindex="0">
+      <input type="text" id="{{HTML_IDS.PROFILE_EMAIL_INPUT}}" placeholder="me@example.com" value="{{memberdata.email}}"
+        tabindex="0">
+      <textarea id="{{HTML_IDS.PROFILE_BIO_INPUT}}" rows="4" placeholder="Tell us about yourself."> {{memberdata.bio}}
+
+      </textarea>
+      <!--Address-->
+      <h6>Contact Info</h6>
+      <input type="text" id="{{PROFILE_ADDRESS_INPUT}}" placeholder="Home Address: 0000 N. Madison Dr. "
+        value="{{address}}" tabindex="0">
+      <input type="text" id="{{PROFILE_CITY_INPUT}}" placeholder="City" value="{{city}}" tabindex="0">
+      <input type="text" id="{{PROFILE_COUNTRY_INPUT}}" placeholder="Country" value="{{country}}" tabindex="0">
+      <input type="number" id="{{PROFILE_ZIPCODE_INPUT}}" placeholder="Postal Code" value={{zipcode}} tabindex="0">
+      <!--Work History-->
+      <input type="file" placeholder="Resume" value="{{resume}}" tabindex="0">
+      <input type="file" placeholder="Cover Letter" value="{{resume}}" tabindex="0">
+      <input type="file" placeholder="Reference sheet" value="{{resume}}" tabindex="0">
+      <input id="profile-save-button" type="submit" value="Save" tabindex="0">
+
+    </form>
+  </div>
+</body>
