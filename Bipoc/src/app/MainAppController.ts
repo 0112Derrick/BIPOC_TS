@@ -1,7 +1,7 @@
 import { Bipoc } from '../models/bipoc-model.js';
 import MainAppView from './MainAppView';
 import { EventConstants } from '../constants/EventConstants.js';
-import { StatusConstants } from '../constants/StatusConstants.js';
+import { LoginStatusConstants as StatusConstants } from '../constants/StatusConstants.js';
 import NetworkProxy from '../network/network-proxy.js'
 import Observer from '../framework/observer.js'
 import mainAppView from './MainAppView';

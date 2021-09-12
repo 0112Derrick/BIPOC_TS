@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 
 import { IMemberDoc } from './src/member/MemberDBModel.js';
 import HTMLIDConstants from './src/constants/HTMLElementIDConstants.js'
-import NodeSyntheticEventEmitter from '.src/framework/NodeSyntheticEventEmitter.js';
+import NodeSyntheticEventEmitter from './src/framework/NodeSyntheticEventEmitter.js';
 import employerRouter from './src/employer/employerRouter.js';
 import member, { Member } from './src/member/Member.js';
 import memberRouter from './src/member/memberRouter.js';

@@ -1,6 +1,6 @@
-import passportLocal from 'passport-local';
+import passportLocal from 'passport-local'
 import MemberModel from '../member/MemberDBModel.js'
-import EmployerModel from '../db/employer-model.js';
+import EmployerModel from '../db/employer-model.js'
 
 const localStrategy = passportLocal.Strategy;
 
@@ -27,24 +27,6 @@ export default function (passport) {
           }
           else {
             console.log("Found user ", email)
-          }
-          return done(err, user, info);// Call the internal passport done() method with the required params.
-        })
-      },
-      async function (email, password, done) {
-        await EmployerModel.findOne({ email: email }, function (err, user) { // Check the employerDB for this email
-          let info;
-          if (!user) {
-            console.log('User name not found', email);
-            info = { message: 'User name not found' };
-          }
-          else if (!user.validPassword(password)) {
-            console.log("Invalid Password ", password)
-            info = { message: 'Invalid password' };
-            err = true;
-          }
-          else {
-            console.log('Found user', email);
           }
           return done(err, user, info);// Call the internal passport done() method with the required params.
         })

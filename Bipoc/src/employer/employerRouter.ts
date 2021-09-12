@@ -19,7 +19,7 @@ employerRouter.post('/signup', express.urlencoded(), async function (req, res, n
   }
   else {
     //
-    res.status = 400;
+    res.status(400);
     res.redirect('/');
     console.log('unable to validate user');
   }
@@ -39,9 +39,9 @@ employerRouter.post('/login', express.json(), function (req, res, next) {
     }
     req.logIn(user, function (err) {
       if (err) { return next(err) }
-      res.sendStatus(200);
+      return res.sendStatus(200);
     });
-
+    return;
   })(req, res, next);
 
 });
