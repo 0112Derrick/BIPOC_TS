@@ -36,7 +36,7 @@ export const defaultMemberData: MemberDataInterface = {
   username: "Jane Doe",
   email: "jane@jane.com",
   firstname: "Jane",
-  lastname: "Done",
+  lastname: "Doe",
   address: "555 Five St.",
   city: "Pleasantville",
   country: "USA",

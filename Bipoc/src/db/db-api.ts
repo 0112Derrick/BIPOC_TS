@@ -5,8 +5,10 @@ import EmployerModel from './employer-model.js'
 async function addMember(userinfo) {
 
   const newMember = new MemberModel({
+    username: userinfo.username,
     email: userinfo.email,
     dateOfBirth: userinfo.dateOfBirth,
+    date: Date(),
   });
 
   newMember.hashPassword(userinfo.password);
@@ -26,8 +28,10 @@ async function addMember(userinfo) {
 async function addEmployer(userinfo) {
 
   const newEmployer = new EmployerModel({
+    username: userinfo.username,
     email: userinfo.email,
     dateOfBirth: userinfo.dateOfBirth,
+    date: Date(),
   });
 
   newEmployer.hashPassword(userinfo.password);

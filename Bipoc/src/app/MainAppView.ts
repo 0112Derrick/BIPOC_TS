@@ -7,7 +7,7 @@ import EventSource from '../views/event-source.js'
 import { EventConstants } from '../constants/EventConstants.js'
 import SyntheticEventEmmiter from '../framework/ClientSyntheticEventEmitter.js';
 import { MemberProfileDataInterface } from '../member/MemberData.js';
-import HTML_IDS from '../constants/HTMLElementIDConstants.js';
+import { HTML_IDS } from '../constants/HTMLElementIDConstants.js';
 
 class MissingElementError extends Error {
   constructor(message: string) {

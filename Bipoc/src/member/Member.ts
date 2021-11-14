@@ -48,6 +48,7 @@ export class Member extends BIPOCElement<MemberDataInterface> {
     Object.assign(this.data, memberData);
   };
 
+
 }
 
 const member = new Member();

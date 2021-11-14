@@ -2,6 +2,12 @@
   margin: 0;
   padding: 0;
 }
+:root{
+  --flash-success: hsla(125, 45%, 45%, 0.95);
+  --flash-failure:hsl(0, 64%, 46%);
+  --flash-success-font-color:hsla(0, 0%, 100%, 0.95);
+  --flash-failure-font-color:hsl(0, 0%, 0%);
+}
 
   .body{
   /*dark mode*/
@@ -9,7 +15,100 @@
   font-family: Arial, Helvetica, sans-serif;
   }
 
-  .modal{
+  .login-modal-main {
+  display         : none;
+  position        : fixed;
+  z-index         : 101;
+  left            : 0;
+  top             : 0;
+  width           : 100%;
+  height          : 100%;
+  overflow        : auto;
+  background-color: hsla(0, 0%, 0%, 0.3);
+}
+
+.close {
+  color      : hsl(0, 0%, 67%);
+  float      : right;
+  font-size  : 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color          : hsl(0, 0%, 0%);
+  text-decoration: none;
+  cursor         : pointer;
+}
+
+.login-modal-content {
+  background-color: hsl(0, 0%, 100%);
+  margin          : 15% auto;
+  padding         : 20px;
+  border          : 1px solid #888;
+  border-radius   : 5px;
+  overflow-wrap   : normal;
+  width           : 90%;
+  height          : 90%;
+  position        : fixed;
+  overflow-y      : scroll;
+  left            : 50%;
+  top             : 50%;
+  transform       : translate(-50%, -75%);
+  text-align      : left;
+}
+
+.flash-message{
+  width: 90%;
+  margin: 10px 0px;
+  height: max-content;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: left;
+  overflow: hidden;
+}
+
+.flash-message.success {
+  background: var(--flash-success);
+  border    : 1px solid hsla(125, 45%, 85%, 0.95);
+  color     : var(--flash-success-font-color);
+  box-shadow: 3px 3px 5px 0px #7d7a7a;
+  animation : success 8s ease-out forwards;
+}
+
+.flash-message.failure {
+  background: var(--flash-failure);
+  color     : var(--flash-failure-font-color);
+  border    : 1px solid hsl(0, 0%, 100%);
+  box-shadow: 3px 3px 5px 0px #7d7a7a;
+}
+@keyframes success {
+  0% {
+    width: 0%;
+  }
+
+  3% {
+    width: 80%;
+  }
+
+  50% {
+    width: 80%;
+  }
+
+  97% {
+    width: 80%;
+  }
+
+  100% {
+    width     : 0px;
+    visibility: hidden;
+  }
+}
+
+/* outdated modal below */
+  .modal {
     display: none;
     /* Hidden by default */
     position: fixed;

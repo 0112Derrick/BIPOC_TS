@@ -68,6 +68,33 @@
 </div>
 <!-- end 4th section-->
 
+
+<div class="login-modal-main" id="{{LOGIN_MODAL}}">
+  <div class="login-modal-content">
+    <span class="close"></span>
+    <form id="{{LOGIN_FORM}}" class="modal-content animate" onsubmit="return false">
+      <div class="container">
+        <label>
+          <for="username">Username
+        </label>
+        <input id="{{MEMBER_SIGNUP_USERNAME}}" type="text" name="username" placeholder="username" required>
+        <label for="email"><b>Email</b></label>
+        <input id="{{MEMBER_SIGNUP_EMAIL}}" type="email" placeholder="johnSmith@gmail.com" name="email" required>
+        <label for="psw"><b>Password</b></label>
+        <input id="{{MEMBER_SIGNUP_PASSWORD}}" type="password" placeholder="Enter Password" name="psw" required>
+        <input id="{{LOGIN_OK}}" type="submit" value="LOGIN">
+
+        <button type="button" id="{{LOGIN_CANCEL}}">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+
+        <div class="flash-message" id="{{FLASH_MESSAGE}}"></div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+{{!--
 <!-- Modal login-->
 <div id="login-modal" class="modal">
   <form id="login-form" class="modal-content animate" onsubmit="return false">
@@ -82,7 +109,7 @@
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
-</div>
+</div> --}}
 
 
 <div>

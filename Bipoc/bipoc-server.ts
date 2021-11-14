@@ -7,7 +7,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import { IMemberDoc } from './src/member/MemberDBModel.js';
-import HTMLIDConstants from './src/constants/HTMLElementIDConstants.js'
+import { HTML_IDS } from './src/constants/HTMLElementIDConstants.js'
 import NodeSyntheticEventEmitter from './src/framework/NodeSyntheticEventEmitter.js';
 import employerRouter from './src/employer/employerRouter.js';
 import member, { Member } from './src/member/Member.js';
@@ -42,7 +42,7 @@ const PORT = process.env.PORT ?? 8080;
 app.use(express.static('static'));
 
 app.use((req, res, next) => {
-  res.locals.HTML_IDS = HTMLIDConstants;
+  res.locals.HTML_IDS = HTML_IDS;
 })
 
 connectDB();

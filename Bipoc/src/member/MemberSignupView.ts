@@ -4,11 +4,50 @@
 // This will trigger an update to the model (via the controller)
 // the model will then trigger an update of the view (via the controller)
 import SyntheticEventEmitter from '../framework/ClientSyntheticEventEmitter.js';
-import { EventConstants } from '../constants/EventConstants.js'
+import { EventConstants } from '../constants/EventConstants.js';
+import { LANDING_HTML_IDS as $id } from '../constants/HTMLElementIDConstants.js';
+import { MemberSignupDataInterface as $MemberSignupDataInterface } from '../member/MemberData.js';
+
+class MissingElementError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "Missing HTML Element";
+  }
+}
+
+/**
+ * @class MemberSignUpView
+ * 
+ * @extends SyntheticEventEmitter to emit local events to the controller(s).
+ * 
+ * @description
+ * Handles everything related to displaying the signup process. Also handles the member sign up interaction with member sign up data.
+ * Sends events to the associated controller when some sort of interaction occurs
+ * and provides and interface for updating the view.
+ */
+
 
 class MemberSignUpView extends SyntheticEventEmitter {
+
+  //List of HTML Elements that we reference by ID.
+  private DOM: HTMLElement[] = [];
+
   constructor() {
     super();
+
+    //Create HTML element objects using the values from the IDs file and
+    //store them in an array for later use.
+    for (let elem_id in $id) {
+      let elem = document.getElementById($id[elem_id]);
+      if (elem) {
+        this.DOM[$id[elem_id]] = elem
+      } else {
+        throw new MissingElementError(`Element id ${$id}: ${$id[elem_id]} not found`);
+      }
+
+    }
+
+    this.DOM[$id.LOGIN_FORM].addEventListener('submit', (event) => { event.preventDefault(); this.memberSignUpFormSubmitCallback() })
 
     // Add listeners that dispatch user actions events to the observers who have subscribed to these events.
     var landingSignup = document.getElementById('landing-signup-btn');
@@ -23,9 +62,20 @@ class MemberSignUpView extends SyntheticEventEmitter {
 
   }
 
+
   // Called by the Controller whenever the View needs to be refreshed
   // because of a Model change.
   updateView() { }
+
+
+  /* NEEDS SANITIZATION!  */
+  memberSignUpFormSubmitCallback() {
+    let formData: $MemberSignupDataInterface = {
+      email: this.DOM[$id.MEMBER_SIGNUP_EMAIL],
+      username: this.DOM[$id.MEMBER_SIGNUP_USERNAME],
+      password: this.DOM[$id.MEMBER_SIGNUP_PASSWORD],
+    }
+  }
 
   //Login
   displayLogInModal() {
@@ -68,7 +118,7 @@ class MemberSignUpView extends SyntheticEventEmitter {
     }
   }
 
-  displayErrorMessage(message) {
+  /* displayErrorMessage(message) {
     const errordialog: (HTMLDialogElement | null) = document.getElementById('error-dialog') as HTMLDialogElement;
     errordialog.innerText = message;
     const button = document.createElement('button');
@@ -77,7 +127,7 @@ class MemberSignUpView extends SyntheticEventEmitter {
     errordialog.appendChild(button);
     errordialog.showModal();
 
-  }
+  } */
 
 }
 const memberSignUpView = new MemberSignUpView();

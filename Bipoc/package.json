@@ -2,7 +2,6 @@
   "engines": {
     "node": "16.x.x"
   },
-
   "name": "datadesignpattern",
   "version": "1.0.0",
   "description": "",

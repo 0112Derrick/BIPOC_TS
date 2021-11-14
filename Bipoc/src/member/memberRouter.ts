@@ -3,17 +3,17 @@ import passport from 'passport';
 import { addMember } from '../db/db-api.js';
 
 const memberRouter = express.Router();
-
+/* express.urlencoded() */
 // Signup Request
-memberRouter.post('/signup', express.urlencoded(), async function (req, res, next) {
+memberRouter.post('/signup', express.json(), async function (req, res, next) {
 
-  if (req.body.email && req.body.password && req.body.dateOfBirth) {
+  if (req.body.email && req.body.password && req.body.dateOfBirth && req.body.username) {
 
     const member = await addMember({
+      username: req.body.username,
       email: req.body.email,
-      dateOfBirth: req.body.dateOfBirth,
-      password: req.body.password
-    }).then((member) => console.log("Added member", member))
+      password: req.body.password,
+    }).then((member) => { console.log("Added member", member) })
       .catch((err) => console.log("Failed to add member"))
       .finally(() => res.redirect('/'));
   }
